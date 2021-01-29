@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 
+@ToString(exclude = "board")
 @Getter
 @RequiredArgsConstructor
 @Entity

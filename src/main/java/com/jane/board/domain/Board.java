@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 
+@ToString(exclude = "writer")
 @Getter
 @RequiredArgsConstructor
 @Entity
@@ -15,7 +16,7 @@ public class Board extends BaseTimeEntity {
     private Long bno;
     private String title;
     private String content;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Member writer;
 
     @Builder
