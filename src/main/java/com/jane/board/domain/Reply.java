@@ -15,11 +15,14 @@ public class Reply extends BaseTimeEntity {
     private Long rno;
     private String text;
     private String replier;
+    @ManyToOne
+    private Board board;
 
     @Builder
-    public Reply(Long rno, String text, String replyer) {
+    public Reply(Long rno, String text, String replier, Board board) {
         this.rno = rno;
         this.text = text;
-        this.replier = replyer;
+        this.replier = replier;
+        this.board = board;
     }
 }

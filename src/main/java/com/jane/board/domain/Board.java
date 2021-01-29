@@ -15,11 +15,14 @@ public class Board extends BaseTimeEntity {
     private Long bno;
     private String title;
     private String content;
+    @ManyToOne
+    private Member writer;
 
     @Builder
-    public Board(Long bno, String title, String content) {
+    public Board(Long bno, String title, String content, Member writer) {
         this.bno = bno;
         this.title = title;
         this.content = content;
+        this.writer = writer;
     }
 }
