@@ -2,6 +2,8 @@ package com.jane.board.service.impl;
 
 import com.jane.board.domain.Board;
 import com.jane.board.dto.BoardDto;
+import com.jane.board.dto.PageMapper;
+import com.jane.board.dto.PageRequestDto;
 import com.jane.board.repository.BoardRepository;
 import com.jane.board.service.BoardService;
 import org.junit.jupiter.api.Test;
@@ -39,5 +41,16 @@ class BoardServiceImplTest {
         assertEquals(title, board.getTitle());
         assertEquals(content, board.getContent());
         assertEquals(writerEmail, board.getWriter().getEmail());
+    }
+
+    @Test
+    public void testGetList() {
+        PageRequestDto pageRequestDto = new PageRequestDto();
+
+        PageMapper<BoardDto, Object[]> result = boardService.getList(pageRequestDto);
+
+        for (BoardDto boardDto : result.getDtoList()) {
+            System.out.println(boardDto);
+        }
     }
 }

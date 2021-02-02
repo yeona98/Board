@@ -35,4 +35,18 @@ public class BoardDto {
                             .build();
         return board;
     }
+
+    public static BoardDto of(Board board, Member member, Long replyCount) {
+        BoardDto boardDto = BoardDto.builder()
+                .bno(board.getBno())
+                .title(board.getTitle())
+                .content(board.getContent())
+                .regDate(board.getRegDate())
+                .modDate(board.getModDate())
+                .writerEmail(member.getEmail())
+                .writerName(member.getName())
+                .replyCount(replyCount.intValue()) // long -> int
+                .build();
+        return boardDto;
+    }
 }
